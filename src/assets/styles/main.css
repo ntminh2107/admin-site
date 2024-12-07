@@ -1498,6 +1498,7 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.left-nav li:active {
   padding-top: 100px;
 }
 .ant-card-body {
+  height: 100%;
   padding: 16px;
 }
 

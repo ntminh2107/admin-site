@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import "./index.css"; // <-- Import the Tailwind CSS file here
 
 // Use the createRoot method for React 18+
 const root = ReactDOM.createRoot(document.getElementById("root"));
