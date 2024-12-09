@@ -17,14 +17,14 @@ export const authSlice = createAppSlice({
   initialState,
   reducers: (create) => ({
     logoutAction: create.reducer(() => {
-      localStorage.removeItem("token");
+      localStorage.removeItem("AdminToken");
       return initialState;
     }),
     loginThunk: create.asyncThunk(
       async ({ email, password }, { dispatch }) => {
         const res = await loginAPI({ email, password });
         if (res.status === 202) {
-          localStorage.setItem("token", res.data); // Store the token on success
+          localStorage.setItem("AdminToken", res.data); // Store the token on success
           dispatch(getCurrentUserThunk()); // Dispatch to fetch user details
           toast.success("Login successful!");
         }
@@ -62,7 +62,7 @@ export const authSlice = createAppSlice({
       async () => {
         const res = await getCurrentUserAPI();
         if (res.status === 401) {
-          localStorage.removeItem("token");
+          localStorage.removeItem("AdminToken");
         }
         return res;
       },

@@ -24,6 +24,7 @@ import "./assets/styles/responsive.css";
 import "./index.css"; // <-- Import the Tailwind CSS file here
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Main>
             <Route exact path="/dashboard" component={Home} />
             <Route exact path="/tables" component={Tables} />
+            <Route exact path="/products" component={Product} />
             <Route exact path="/billing" component={Billing} />
             <Route exact path="/rtl" component={Rtl} />
             <Route exact path="/profile" component={Profile} />

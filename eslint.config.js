@@ -10,7 +10,7 @@ export default [
     files: ["**/*.{js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: { ...globals.browser }, // Avoid the unused import of globals
+      globals: globals.browser,
       parserOptions: {
         ecmaVersion: "latest",
         ecmaFeatures: { jsx: true },
@@ -18,14 +18,12 @@ export default [
       },
     },
     settings: { react: { version: "18.3" } },
-    plugins: [
-      // If you are using these plugins in your config, leave them.
-      "react",
-      "react-hooks",
-      "react-refresh",
-    ],
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
     rules: {
-      // Keep these rules if you need them, or remove any you don't need
       "react/jsx-no-target-blank": "off",
       "react-refresh/only-export-components": [
         "warn",

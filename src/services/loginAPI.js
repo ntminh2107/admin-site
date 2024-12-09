@@ -13,7 +13,7 @@ export const loginAPI = ({ email, password }) => {
 };
 
 export const getCurrentUserAPI = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("AdminToken");
   return axiosClient
     .get("/api/auth/user/me", { headers: { Authorization: `Bearer ${token}` } })
     .then((res) => {

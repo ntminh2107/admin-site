@@ -2,7 +2,7 @@ import { getAllOrderAPI } from "../../services/orderAPI";
 import { createAppSlice } from "../appSlice";
 
 const initialState = {
-  orderList: [],
+  orderList: {},
   loading: true,
 };
 

@@ -1,8 +1,7 @@
 import axiosClient from "./api";
 
 export const getAllOrderAPI = ({ page, pageSize }) => {
-  const token = localStorage.getItem("token");
-  console.log(page, pageSize);
+  const token = localStorage.getItem("AdminToken");
   return axiosClient
     .get(`api/order/admin/all?page=${page}&pageSize=${pageSize}`, {
       headers: { Authorization: `Bearer ${token}` },

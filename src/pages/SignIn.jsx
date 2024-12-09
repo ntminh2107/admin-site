@@ -123,7 +123,7 @@ function SignIn() {
         password: values.password,
       })
     );
-    history.push("/");
+    history.push("/dashboard");
   };
 
   const onFinishFailed = (errorInfo) => {
