@@ -250,7 +250,7 @@ function Header({
   handleFixedNavbar,
 }) {
   const { Title, Text } = Typography;
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("AdminToken");
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [sidenavType, setSidenavType] = useState("transparent");

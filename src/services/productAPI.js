@@ -47,3 +47,13 @@ export const createProductAPI = ({
     })
     .catch((err) => err);
 };
+
+export const getProductDetailAPI = (productID) => {
+  return axiosClient
+    .get(`api/product/detail/${productID}`)
+    .then((res) => {
+      const { data, status } = res;
+      return { data, status };
+    })
+    .catch((err) => err);
+};

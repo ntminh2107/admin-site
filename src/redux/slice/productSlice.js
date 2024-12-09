@@ -1,9 +1,14 @@
-import { createProductAPI, getProductListAPI } from "../../services/productAPI";
+import {
+  createProductAPI,
+  getProductDetailAPI,
+  getProductListAPI,
+} from "../../services/productAPI";
 import { createAppSlice } from "../appSlice";
 
 const initialState = {
   productList: {},
   product: {},
+  productDetail: {},
   loading: true,
 };
 
@@ -29,6 +34,35 @@ export const productSlice = createAppSlice({
             ...state,
             loading: false,
             productList: data,
+            status: status,
+          };
+        },
+        rejected: (state) => {
+          return {
+            ...state,
+            loading: false,
+          };
+        },
+      }
+    ),
+    getProductDetailThunk: create.asyncThunk(
+      async (productID) => {
+        const res = await getProductDetailAPI(productID);
+        return res;
+      },
+      {
+        pending: (state) => {
+          return {
+            ...state,
+            loading: true,
+          };
+        },
+        fulfilled: (state, action) => {
+          const { data, status } = action.payload;
+          return {
+            ...state,
+            loading: false,
+            productDetail: data,
             status: status,
           };
         },
@@ -91,5 +125,9 @@ export const productSlice = createAppSlice({
     ),
   }),
 });
-export const { getAllProductsThunk, createProductThunk } = productSlice.actions;
+export const {
+  getAllProductsThunk,
+  createProductThunk,
+  getProductDetailThunk,
+} = productSlice.actions;
 export default productSlice.reducer;
